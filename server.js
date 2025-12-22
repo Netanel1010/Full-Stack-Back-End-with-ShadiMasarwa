@@ -2,10 +2,14 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 
-
 const port = process.env.PORT;
 
 app.use(express.json());
+
+const products = require("./routes-2/products");
+app.use("/products",products);
+
+
 
 /*
 //students routes
@@ -36,7 +40,6 @@ const Middleware = (req, res, next) => {
 
 app.use(Middleware);*/
 
-
 /*const blockDelete = (req,res,next) =>{
     const deleted = req.method; 
     if(deleted === 'DELETE'){
@@ -47,7 +50,7 @@ app.use(Middleware);*/
 }
 app.use(blockDelete);*/
 
-
+/*
 const validateage =(req,res,next)=>{//מטפלים בלא
     const age = Number(req.body.age);
     if(age < 0 || age > 18){
@@ -58,7 +61,8 @@ const validateage =(req,res,next)=>{//מטפלים בלא
 app.post("/users",validateage,(req,res)=>{// מטפלים בכן
     res.status(200).send("you are in corrent age!");
     console.log("get some joint's !!");
-}); 
+}); */
+
 
 
 
