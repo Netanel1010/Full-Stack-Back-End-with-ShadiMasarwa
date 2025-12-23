@@ -2,10 +2,9 @@ const router = require("express").Router();
 
 const fs = require("fs");
 const path = require("path");
-const fileWithPath = path.join(__dirname,"products.json");
+const fileWithPath = path.join(__dirname,"");
 
 router.get("/" , (req,res)=>{
-
     try {
         const data = fs.readFileSync(fileWithPath , "utf-8");
         if(!data){
@@ -13,11 +12,13 @@ router.get("/" , (req,res)=>{
         }
         const products = JSON.parse(data);
         res.json(products);
-
     } catch (error) {
         res.send([]);
     }
-    
 });
+
+
+
+
 
 module.exports = router;

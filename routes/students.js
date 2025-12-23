@@ -1,4 +1,4 @@
-const router = require("express").Router();
+/*const router = require("express").Router();
 
 let students = [];
 
@@ -61,4 +61,4 @@ router.get("/", (req, res) => {
 //בגלל שיש שתי פעולות של קריאה והם על אותו קישור אז רק הראשון יעבוד!
 
 
-module.exports = router;
+module.exports = router;*/

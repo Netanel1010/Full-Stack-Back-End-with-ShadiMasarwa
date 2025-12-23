@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const router = express.Router();
 
 
@@ -6,4 +6,4 @@ router.get("/", (req, res) =>{
     res.status(201) .json({massage:"This is from users routes"})
 });
 
-module.exports = router;
+module.exports = router;*/
