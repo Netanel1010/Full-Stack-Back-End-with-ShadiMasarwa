@@ -10,6 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const fileWithPath = path.join(__dirname,"products.json");
 
+//--> קבלת כל המוצרים
 router.get("/" , (req,res)=>{
     try {
         const data = fs.readFileSync(fileWithPath , "utf-8");
@@ -23,7 +24,7 @@ router.get("/" , (req,res)=>{
     }
 });
 
-
+//--> id קבלת מוצר מסוים לפי 
 router.get("/:id", (req,res)=>{
     const idFromParams = req.params.id;
     const data = JSON.parse(fs.readFileSync(fileWithPath , "utf-8"));//ממיר מג'יסון למערך של אובייקטים
@@ -34,7 +35,7 @@ router.get("/:id", (req,res)=>{
     res.status(404).send("data not found");
 });
 
-
+//--> Middleware יצירת 
 const valiDateAdmin = (req,res,next)=>{
     const fs = require("fs");
     const path = require("path");   
@@ -51,6 +52,7 @@ const valiDateAdmin = (req,res,next)=>{
     next();
 };
 
+//-->(Create) יצירת מוצר חדש 
 router.post("/", valiDateAdmin,(req,res)=>{
     const id = req.body.id;
     const name = req.body.name;
@@ -58,36 +60,46 @@ router.post("/", valiDateAdmin,(req,res)=>{
     const quantity = Number(req.body.id);
     const data = JSON.parse(fs.readFileSync(fileWithPath,"utf-8"));
     const index = data.findIndex(p => p.id === id);
-    if(!index){
+    //קיים כבר id אם
+    if(index !== -1){     
         return res.status(409).send("product exsits already")
     } 
     const products = req.body;
-    fs.writeFileSync(fileWithPath, JSON.stringify(products));
-    console.log("new product was added successfully");
+    data.push(products);
+    fs.writeFileSync(fileWithPath, JSON.stringify(data));
     res.status(201).json("new product was added successfully");
+});
 
-})
-
-
-
-
-/*
-//אם לא
-const somthing =(req,res,next)=>{
-    const id = req.body.id;
+//--> (Update) עדכון מוצר  
+router.put("/:id",valiDateAdmin,(req,res)=>{
+    const idFromParams = req.params.id;
+    const updatedId = req.body;
     const name = req.body.name;
     const price = Number(req.body.id);
     const quantity = Number(req.body.id);
-    
-    next();
-}
-
-//אם כן
-router.post("/",somthing,(req,res)=>{
-    res.status(200).send("you are in corrent age!");
+    const data = JSON.parse(fs.readFileSync(fileWithPath,"utf-8"));
+    const index = data.findIndex(p => p.id === idFromParams);
+    // לא קיים  - id אם
+    if(index === -1){     
+        return res.status(404).send("product not found!")
+    } 
+    updatedId.id=idFromParams;
+    data[index] = updatedId;
+    fs.writeFileSync(fileWithPath, JSON.stringify(data));
+    res.status(200).json("products was updated successfully");
 })
-*/
-
+//--> (Delete) מחיקת מוצר
+router.delete("/:id",valiDateAdmin,(req,res)=>{
+    const idFromParams = req.params.id;
+    const data = JSON.parse(fs.readFileSync(fileWithPath,"utf-8"));
+    const index = data.findIndex(p => p.id === idFromParams);
+    if (index === -1) {
+        res.status(404).send("product not found!")
+    }
+    data.splice(index, 1);
+    fs.writeFileSync(fileWithPath, JSON.stringify(data));
+    res.status(201) .send("data deleted!!!");
+})
 
 
 module.exports = router;
