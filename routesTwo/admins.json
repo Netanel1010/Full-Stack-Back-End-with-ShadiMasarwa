@@ -1,8 +1,1 @@
-[
-    {
-        "id": "a1",
-        "name": "David Cohen",
-        "username": "admin1",
-        "password": "1234"
-    }
-]
+[{"id":"a1","name":"David Cohen","username":"admin1","password":"1234"},{"id":"d51dax","name":"David Cohen","username":"admin1","password":"1234"},{"id":"d51daxד","name":"David Cohen","username":"admin2","password":"1234"},{"id":"student year 2","name":"netanel babayev","username":"netanel","password":"5769"},{"id":"student year 1","name":"netanel babayev","username":"netanel b","password":"a1b5r6"},{"id":"student year 14","name":"netanel babayev","username":"netanel cac","password":"a1b5r676"},{"id":"student year 0","name":"netanel babayev","username":"netanel 0154","password":"a1b5r676"},{"id":"student year 9","name":"netanel babayev","username":"netanel 50","password":"a1b5r676"},{"id":"b32b3b23","name":"netan","username":"netanel01010","password":"a1b5r676"},{"id":"50","name":"csacxac","username":"cxacxgafxaf","password":"$2b$10$.1qrpTV/DR9/tzNScwyu8OVbfu7oInnFKEfP23qhfpUUeUXRWnKLK"},{"id":"56","name":"csacxac","username":"he","password":"$2b$10$6vAOum9XM0H3cA8aDJ27AOiJ/TVqaV4nPdlFAyPw71LT7RKpwn9Wi"}]

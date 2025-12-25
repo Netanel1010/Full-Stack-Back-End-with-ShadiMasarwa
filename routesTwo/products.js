@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const bcrypt = require('bcrypt');//הצפנת סיסמאות
 
 /*
     /:id        → params → מי?
@@ -30,7 +31,7 @@ router.get("/:id", (req,res)=>{
     const data = JSON.parse(fs.readFileSync(fileWithPath , "utf-8"));//ממיר מג'יסון למערך של אובייקטים
     const index = data.findIndex(p => p.id === idFromParams);
     if (index !== -1) {
-       return res .status(200) .send(data);
+       return res .status(200) .send(data[index]);
     }
     res.status(404).send("data not found");
 });
@@ -43,12 +44,19 @@ const valiDateAdmin = (req,res,next)=>{
     const admins = JSON.parse(fs.readFileSync(fileWithPath , "utf-8"));
 
     const username = req.query.username;
-    const password = req.query.password;
+    let password = req.query.password;
 
-    const isAdmin = admins.findIndex(p => p.username === username && p.password === password);
-    if(isAdmin === -1){
+    //מחפשים שם משתמש של המנהל בלבד
+    const isAdmin = admins.find(a => a.username === username);
+    if(!isAdmin){
         return res.status(401).send("You are not admin!");
     }
+    //משווים את הסיסמה
+    bcrypt.compare(password , isAdmin.password , (error , result)=>{
+        if(!result){
+            return res.status(401).send("You are not admin!");
+        }
+    })
     next();
 };
 
@@ -56,19 +64,21 @@ const valiDateAdmin = (req,res,next)=>{
 router.post("/", valiDateAdmin,(req,res)=>{
     const id = req.body.id;
     const name = req.body.name;
-    const price = Number(req.body.id);
-    const quantity = Number(req.body.id);
+    const price = Number(req.body.price);
+    const quantity = Number(req.body.quantity);
+    const category = req.body.category;
     const data = JSON.parse(fs.readFileSync(fileWithPath,"utf-8"));
-    const index = data.findIndex(p => p.id === id);
+    const index = data.find(p => p.id === id);
     //קיים כבר id אם
-    if(index !== -1){     
-        return res.status(409).send("product exsits already")
+    if(index !== undefined ||id === undefined || name===undefined || price===null || quantity===null || category === undefined ){     
+        return res.status(409).send("product exsits already or not filed as needed!!")
     } 
     const products = req.body;
     data.push(products);
     fs.writeFileSync(fileWithPath, JSON.stringify(data));
     res.status(201).json("new product was added successfully");
 });
+
 
 //--> (Update) עדכון מוצר  
 router.put("/:id",valiDateAdmin,(req,res)=>{
@@ -77,10 +87,11 @@ router.put("/:id",valiDateAdmin,(req,res)=>{
     const name = req.body.name;
     const price = Number(req.body.id);
     const quantity = Number(req.body.id);
+    const category = req.body.category;
     const data = JSON.parse(fs.readFileSync(fileWithPath,"utf-8"));
     const index = data.findIndex(p => p.id === idFromParams);
     // לא קיים  - id אם
-    if(index === -1){     
+    if(index === -1 ){    
         return res.status(404).send("product not found!")
     } 
     updatedId.id=idFromParams;
@@ -88,6 +99,8 @@ router.put("/:id",valiDateAdmin,(req,res)=>{
     fs.writeFileSync(fileWithPath, JSON.stringify(data));
     res.status(200).json("products was updated successfully");
 })
+
+
 //--> (Delete) מחיקת מוצר
 router.delete("/:id",valiDateAdmin,(req,res)=>{
     const idFromParams = req.params.id;
