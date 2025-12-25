@@ -1,34 +1,117 @@
-# ⚙️ Backend Routes Guide
+# Server Setup Guide
 
-Guidelines for working with the backend routes and server.  
-Focus your edits only where specified to keep the structure clean.
+מדריך מלא להתקנה והפעלה של השרת
 
----
+## 📋 דרישות מקדימות
 
-## 📂 Routes Overview
+לפני שמתחילים, יש לוודא שמותקנים הכלים הבאים:
 
-### `routes`
-This folder contains existing routes.  
-> **Note:** Ignore files here. All changes should be done in `routesTwo` only.
+### בדיקת התקנת Node.js
 
-### `routesTwo`
-This folder is for all new route creation, updates, or deletions.  
-> **Focus here for any new code changes.**
+```bash
+node -v
+npm -v
+```
 
-### `server.js`
-Sections marked with comments should be ignored.  
-> You can add new code between comment sections, but pay attention to existing structure.
+**תוצאה צפויה:** אם אתה רואה מספרי גרסה (למשל `v18.17.0` ו-`9.6.7`) - הכל תקין! ✅
+
+**אם לא רואה מספרים:** יש להתקין את [Node.js](https://nodejs.org/) מהאתר הרשמי.
 
 ---
 
-## 📝 Quick Summary
+## ⚙️ הגדרת סביבת העבודה
 
-- ✅ Ignore the `routes` folder  
-- ✅ Work only in `routesTwo`  
-- ✅ Ignore commented sections in `server.js`  
+### 1. יצירת קובץ `.env`
+
+בשורש הפרויקט, צור קובץ בשם `.env` והוסף את השורה הבאה:
+
+```env
+PORT=3000
+```
+
+> **💡 טיפ:** אפשר לשנות את המספר 3000 למספר פורט אחר (גדול יותר) לפי הצורך.
 
 ---
 
-## 💡 Tip
+## 🚀 התקנה והפעלה
 
-Keeping your edits limited to `routesTwo` and new sections in `server.js` ensures that the project remains organized and prevents conflicts with existing functionality.
+### 2. התקנת חבילות (חובה!)
+
+בתוך תיקיית הפרויקט, הרץ את הפקודה הבאה:
+
+```bash
+npm install
+```
+
+⏳ **המתן** עד שהפקודה תסיים - יווצר תיקיית `node_modules` עם כל החבילות הנדרשות.
+
+---
+
+### 3. הפעלת השרת
+
+לאחר התקנת החבילות, הפעל את השרת באמצעות:
+
+```bash
+npx nodemon server.js
+```
+
+השרת אמור להיות פעיל וזמין! 🎉
+
+---
+
+## 💎 שיפור חווית הפיתוח (אופציונלי)
+
+לניהול נוח יותר של הפרויקט, מומלץ להוסיף סקריפטים מותאמים אישית.
+
+### הוספת סקריפט ל-`package.json`
+
+פתח את הקובץ `package.json` והוסף את המקטע הבא תחת `"scripts"`:
+
+```json
+"scripts": {
+  "dev": "nodemon server.js"
+}
+```
+
+### הרצה באמצעות הסקריפט
+
+כעת תוכל להריץ את השרת בצורה פשוטה יותר:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📚 סיכום
+
+| שלב | פקודה | תיאור |
+|------|-------|--------|
+| 1 | `node -v && npm -v` | בדיקת התקנת Node.js |
+| 2 | `npm install` | התקנת חבילות |
+| 3 | `npx nodemon server.js` | הפעלת השרת |
+| 4 (אופציונלי) | `npm run dev` | הפעלה דרך סקריפט מותאם |
+
+---
+
+## 🔧 פתרון בעיות נפוצות
+
+**השרת לא עולה?**
+- ודא שקובץ `.env` קיים ומכיל את `PORT=3000`
+- ודא שהתקנת את החבילות עם `npm install`
+- בדוק שאין תהליך אחר שכבר משתמש בפורט 3000
+
+**nodemon לא מותקן?**
+```bash
+npm install -g nodemon
+```
+
+---
+
+## 📞 תמיכה
+
+נתקלת בבעיה? פתח issue או צור קשר עם צוות הפיתוח.
+
+---
+
+**Happy Coding! 💻✨**
