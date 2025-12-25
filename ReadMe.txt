@@ -1,28 +1,27 @@
-=========================
-       README
-=========================
+# Backend Routes Guide
 
-**חשוב לקרוא לפני עריכה**
+Guidelines for working with the backend routes and server.  
+Focus your edits only where specified.
 
-1. ספריות וקבצים:
+---
 
-   - **routes**
-     זוהי ספרייה עם נתיבים קיימים.  
-     **לתשומת לב:** יש להתעלם מקבצים אלה.  
-     כל השינויים צריכים להיעשות רק ב- **routesTwo**.
+## Routes Overview
 
-   - **routesTwo**
-     כאן ניתן להוסיף, לשנות או למחוק נתיבים.  
-     כל הקוד החדש צריך להיות כאן, לא ב- **routes**.
+### `routes`
+This folder contains existing routes.  
+**Note:** Ignore files here. Any changes should be done in `routesTwo`.
 
-   - **server.js**
-     כל מה שמסומן בהערות (**comments**) **יש להתעלם ממנו**.  
-     ניתן להוסיף קוד חדש בין ההערות אך להתמקד בקוד אחר.
+### `routesTwo`
+This folder is for all new route creation, updates, or deletions.  
+All your code changes should be made here, not in `routes`.
 
-=========================
-      סיכום קצר
-=========================
+### `server.js`
+Sections marked with comments should be ignored.  
+You can add new code between comment sections, but focus on other parts of the file.
 
-- להתעלם מ- routes.  
-- לעבוד רק ב- routesTwo.  
-- להתעלם מהערות ב- server.js.  
+---
+
+## Quick Summary
+- Ignore `routes` folder.  
+- Work only in `routesTwo`.  
+- Ignore commented sections in `server.js`.
