@@ -14,10 +14,15 @@ Short project description
 ## 🛠️ Technologies
 
 Node.js
+
 Express
+
 JavaScript
+
 bcrypt
+
 dotenv
+
 JSON
 
 ## 📡 API Endpoints
