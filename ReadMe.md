@@ -1,117 +1,52 @@
-# Server Setup Guide
+# ⚙️ Node.js REST API
 
-מדריך מלא להתקנה והפעלה של השרת
+Short project description
 
-## 📋 דרישות מקדימות
+## ✨ Features
 
-לפני שמתחילים, יש לוודא שמותקנים הכלים הבאים:
+- REST API
+- Product CRUD
+- Admin management
+- Express middleware
+- bcrypt password verification
+- JSON file storage
 
-### בדיקת התקנת Node.js
+## 🛠️ Technologies
 
-```bash
-node -v
-npm -v
-```
+Node.js
+Express
+JavaScript
+bcrypt
+dotenv
+JSON
 
-**תוצאה צפויה:** אם אתה רואה מספרי גרסה (למשל `v18.17.0` ו-`9.6.7`) - הכל תקין! ✅
+## 📡 API Endpoints
 
-**אם לא רואה מספרים:** יש להתקין את [Node.js](https://nodejs.org/) מהאתר הרשמי.
+GET /products
+GET /products/:id
+POST /products
+PUT /products/:id
+DELETE /products/:id
 
----
+## 🚀 Getting Started
 
-## ⚙️ הגדרת סביבת העבודה
-
-### 1. יצירת קובץ `.env`
-
-בשורש הפרויקט, צור קובץ בשם `.env` והוסף את השורה הבאה:
-
-```env
-PORT=3000
-```
-
-> **💡 טיפ:** אפשר לשנות את המספר 3000 למספר פורט אחר (גדול יותר) לפי הצורך.
-
----
-
-## 🚀 התקנה והפעלה
-
-### 2. התקנת חבילות (חובה!)
-
-בתוך תיקיית הפרויקט, הרץ את הפקודה הבאה:
-
-```bash
 npm install
-```
 
-⏳ **המתן** עד שהפקודה תסיים - יווצר תיקיית `node_modules` עם כל החבילות הנדרשות.
+Create .env:
 
----
+PORT=3000
 
-### 3. הפעלת השרת
+Run:
 
-לאחר התקנת החבילות, הפעל את השרת באמצעות:
-
-```bash
 npx nodemon server.js
-```
 
-השרת אמור להיות פעיל וזמין! 🎉
+## 📁 Project Structure
 
----
+server.js
+routes/
+routesTwo/
 
-## 💎 שיפור חווית הפיתוח (אופציונלי)
+## 🎓 Project Context
 
-לניהול נוח יותר של הפרויקט, מומלץ להוסיף סקריפטים מותאמים אישית.
-
-### הוספת סקריפט ל-`package.json`
-
-פתח את הקובץ `package.json` והוסף את המקטע הבא תחת `"scripts"`:
-
-```json
-"scripts": {
-  "dev": "nodemon server.js"
-}
-```
-
-### הרצה באמצעות הסקריפט
-
-כעת תוכל להריץ את השרת בצורה פשוטה יותר:
-
-```bash
-npm run dev
-```
-
----
-
-## 📚 סיכום
-
-| שלב | פקודה | תיאור |
-|------|-------|--------|
-| 1 | `node -v && npm -v` | בדיקת התקנת Node.js |
-| 2 | `npm install` | התקנת חבילות |
-| 3 | `npx nodemon server.js` | הפעלת השרת |
-| 4 (אופציונלי) | `npm run dev` | הפעלה דרך סקריפט מותאם |
-
----
-
-## 🔧 פתרון בעיות נפוצות
-
-**השרת לא עולה?**
-- ודא שקובץ `.env` קיים ומכיל את `PORT=3000`
-- ודא שהתקנת את החבילות עם `npm install`
-- בדוק שאין תהליך אחר שכבר משתמש בפורט 3000
-
-**nodemon לא מותקן?**
-```bash
-npm install -g nodemon
-```
-
----
-
-## 📞 תמיכה
-
-נתקלת בבעיה? פתח issue או צור קשר עם צוות הפיתוח.
-
----
-
-**Happy Coding! 💻✨**
+Built during my second year (Semester 1)
+of Software Engineering practical studies.
