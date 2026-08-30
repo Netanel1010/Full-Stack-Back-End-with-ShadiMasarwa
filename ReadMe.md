@@ -23,9 +23,13 @@ JSON
 ## 📡 API Endpoints
 
 GET /products
+
 GET /products/:id
+
 POST /products
+
 PUT /products/:id
+
 DELETE /products/:id
 
 ## 🚀 Getting Started
