@@ -6,10 +6,11 @@ A Node.js and Express REST API for managing products and administrators, with CR
 
 - REST API
 - Product CRUD
-- Admin management
+- Admin CRUD operations
 - Express middleware
 - bcrypt password verification
 - JSON file storage
+- Password hashing with bcrypt
 
 ## 🛠️ Technologies
 
