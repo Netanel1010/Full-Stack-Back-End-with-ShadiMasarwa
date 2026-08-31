@@ -55,6 +55,10 @@ npx nodemon server.js
 NodeJS-REST-API/
 ├── routes/
 ├── routesTwo/
+│   ├── admins.js
+│   ├── admins.json
+│   ├── products.js
+│   └── products.json
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
