@@ -1,6 +1,6 @@
 # ⚙️ Node.js REST API
 
-Short project description
+A Node.js and Express REST API for managing products and administrators, with CRUD operations, middleware, bcrypt password verification, and JSON-based data storage.
 
 ## ✨ Features
 
@@ -13,49 +13,54 @@ Short project description
 
 ## 🛠️ Technologies
 
-Node.js
-
-Express
-
-JavaScript
-
-bcrypt
-
-dotenv
-
-JSON
+- Node.js
+- Express
+- JavaScript
+- bcrypt
+- dotenv
+- JSON
 
 ## 📡 API Endpoints
 
-GET /products
-
-GET /products/:id
-
-POST /products
-
-PUT /products/:id
-
-DELETE /products/:id
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/products` | Get all products |
+| GET | `/products/:id` | Get a product by ID |
+| POST | `/products` | Create a product |
+| PUT | `/products/:id` | Update a product |
+| DELETE | `/products/:id` | Delete a product |
 
 ## 🚀 Getting Started
 
+### Install dependencies
+
+```bash
 npm install
+```
 
-Create .env:
+### Create .env
 
+```bash
 PORT=3000
+```
 
-Run:
+### Run the server
 
+```bash
 npx nodemon server.js
+```
 
 ## 📁 Project Structure
-
-server.js
-routes/
-routesTwo/
+```bash
+NodeJS-REST-API/
+├── routes/
+├── routesTwo/
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── server.js
+└── README.md
+```
 
 ## 🎓 Project Context
-
-Built during my second year (Semester 1)
-of Software Engineering practical studies.
+Built during my second year (Semester 1) of Software Engineering practical studies.
