@@ -23,13 +23,19 @@ A Node.js and Express REST API for managing products and administrators, with CR
 
 ## 📡 API Endpoints
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/products` | Get all products |
-| GET | `/products/:id` | Get a product by ID |
-| POST | `/products` | Create a product |
-| PUT | `/products/:id` | Update a product |
-| DELETE | `/products/:id` | Delete a product |
+| Method | Endpoint        | Description         |
+| ------ | --------------- | ------------------- |
+| GET    | `/products`     | Get all products    |
+| GET    | `/products/:id` | Get a product by ID |
+| POST   | `/products`     | Create a product    |
+| PUT    | `/products/:id` | Update a product    |
+| DELETE | `/products/:id` | Delete a product    |
+| GET    | `/admins`       | Get all admins      |
+| GET    | `/admins/:id`   | Get an admin by ID  |
+| POST   | `/admins`       | Create an admin     |
+| PUT    | `/admins/:id`   | Update an admin     |
+| DELETE | `/admins/:id`   | Delete an admin     |
+
 
 ## 🚀 Getting Started
 
